@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FraudShield Gujarat 3D -- Official</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <header>
+    <div class="container">
+      <div class="logo-section">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b4f8a'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z'/></svg>" width="30" ondblclick="openAdmin()">
+        <h1 id="nav-title" style="margin:0; font-size: 18px; color: var(--primary);">FraudShield</h1>
+      </div>
+      <select id="langSelect" onchange="changeLanguage(this.value)">
+        <option value="en" selected>English</option>
+        <option value="gu">ગુજરાતી</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+  </header>
+
+  <nav class="tab-container" id="mobileMenu">
+    <div class="tab-list">
+      <button class="tab active" data-lang="t1" onclick="showTab(this, 'checker')">Checker</button>
+      <button class="tab" data-lang="t2" onclick="showTab(this, 'tips')">Media Tips</button>
+      <button class="tab" data-lang="t3" onclick="showTab(this, 'map')">Heatmap</button>
+      <button class="tab" data-lang="t4" onclick="showTab(this, 'report')">Report</button>
+      <button class="tab" data-lang="t5" onclick="showTab(this, 'chat')">AI Bot</button>
+    </div>
+  </nav>
+
+  <main onclick="closeMenu()">
+    <section id="checker" class="tab-panel active-panel" style="opacity: 1; transform: translateY(0);">
+      <div class="grid">
+        <div class="card">
+          <h2 data-lang="c_h2">🔍 Scam Search</h2>
+          <input type="text" id="mainInput" data-ph="p_target" placeholder="Number or link">
+          <button class="btn-primary" data-lang="b1" onclick="runCheck()">Verify Safety</button>
+          <div id="checkResult" style="margin-top:15px; font-weight: 700;"></div>
+        </div>
+        <div class="card" style="background: var(--primary); color: white;">
+          <h3 data-lang="w_h3">Stay Alert!</h3>
+          <p data-lang="w_p">Never share your OTP or Bank Details.</p>
+        </div>
+      </div>
+    </section>
+
+<section id="tips" class="tab-panel">
+  <div class="youtube-container">
+    <div class="main-player">
+      <video id="mainVid" controls autoplay muted loop>
+        <source src="videos/1.mp4" type="video/mp4">
+      </video>
+      <div class="video-description">
+        <h3 id="mainTitle" data-lang="v1">Digital Arrest Scam</h3>
+        <p style="font-size: 14px; color: #666;"> FraudShield India • 2026</p>
+      </div>
+    </div>
+
+    <div class="video-list">
+      <div class="side-item" onclick="changeMainVid('videos/1.mp4', 'Digital Arrest Scam')">
+        <video muted><source src="videos/1.mp4"></video>
+        <div class="side-info">
+          <h4 data-lang="v1">Digital Arrest Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/2.mp4', 'Lottery Scam')">
+        <video muted><source src="videos/2.mp4"></video>
+        <div class="side-info">
+          <h4>Lottery Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/3.mp4', 'Investment Scam')">
+        <video muted><source src="videos/3.mp4"></video>
+        <div class="side-info">
+          <h4>Investment Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/4.mp4', 'Kyc Scam')">
+        <video muted><source src="videos/4.mp4"></video>
+        <div class="side-info">
+          <h4>Kyc Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/5.mp4', 'UPI PIN Scam')">
+        <video muted><source src="videos/5.mp4"></video>
+        <div class="side-info">
+          <h4>UPI PIN Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/6.mp4', 'QR Code Scam')">
+        <video muted><source src="videos/6.mp4"></video>
+        <div class="side-info">
+          <h4>QR Code Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/7.mp4', 'Bank Account Block Scam')">
+        <video muted><source src="videos/7.mp4"></video>
+        <div class="side-info">
+          <h4>Bank Account Block Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/8.mp4', 'Fake link Scam')">
+        <video muted><source src="videos/8.mp4"></video>
+        <div class="side-info">
+          <h4>Fake link Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/9.mp4', 'Fake Investment App Scam')">
+        <video muted><source src="videos/9.mp4"></video>
+        <div class="side-info">
+          <h4>Fake Investment App Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/10.mp4', 'Cyber Awareness')">
+        <video muted><source src="videos/10.mp4"></video>
+        <div class="side-info">
+          <h4>Cyber Awareness</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/11.mp4', 'Free Tips Scam')">
+        <video muted><source src="videos/11.mp4"></video>
+        <div class="side-info">
+          <h4>Free Tips Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/12.mp4', 'OTP Scam')">
+        <video muted><source src="videos/12.mp4"></video>
+        <div class="side-info">
+          <h4>OTP Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+
+      <div class="side-item" onclick="changeMainVid('videos/13.mp4', 'Creadit Card Scam')">
+        <video muted><source src="videos/13.mp4"></video>
+        <div class="side-info">
+          <h4>Creadit Card Scam</h4>
+          <p>FraudShield India</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+            <!--<div class="media-item">
+          <img src="tip1.jpg" alt="Tip 1">
+          <p data-lang="i1">Verify before clicking</p>
+        </div>-->
+    <section id="map" class="tab-panel">
+      <div class="card">
+        <h3 data-lang="t3">Heatmap</h3>
+        <div id="gujaratMap"></div>
+      </div>
+    </section>
+
+<section id="report" class="tab-panel">
+  <div class="grid">
+    <div class="card">
+      <h3 data-lang="r_h3">📩 Submit New Report</h3>
+      
+      <label data-lang="l_name">User Name</label>
+      <input type="text" id="uName" data-ph="p_name" placeholder="Enter name">
+      
+      <label data-lang="l_email">Email ID</label>
+      <input type="email" id="uEmail" data-ph="p_email" placeholder="Enter email">
+      
+      <label data-lang="l_target">Fraud Number/Link</label>
+      <input type="text" id="fTarget" data-ph="p_target" placeholder="Number or link">
+      
+      <label data-lang="l_type">Fraud Type</label>
+      <select id="fType">
+        <option value="" data-lang="opt_def">Select Type</option>
+        <option value="UPI Scam">UPI Scam</option>
+        <option value="Fake Call">Fake Call</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <label data-lang="l_loc">Location</label>
+      <input type="text" id="fLocation" data-ph="p_loc" placeholder="City/Area">
+      
+      <label data-lang="l_desc">Description</label>
+      <textarea id="fDesc" rows="4" data-ph="p_desc" placeholder="Details..."></textarea>
+      
+      <button class="btn-primary" data-lang="r_btn" onclick="submitReport()">Submit Report</button>
+    </div>
+
+    <div class="card">
+      <h3 data-lang="r_list">📋 Recent Reports</h3>
+      <div id="reportList">
+        <p id="emptyMsg" data-lang="no_rep">No reports yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminSection" class="card" style="margin-top: 30px; border: 2px dashed #0b4f8a; background: #f0f7ff; display: none;">
+    <h3 style="color: #0b4f8a;">🛠 Developer Control Panel</h3>
+    <div id="adminQueue"></div>
+  </div>
+</section>
+
+<section id="chat" class="tab-panel">
+  <div class="card" style="max-width: 600px; margin: 0 auto;">
+    <h3 data-lang="b_h3">🤖 Support Bot</h3>
+    
+    <div id="chatBox" style="height:300px; overflow-y:auto; margin-bottom:10px; background:#f9f9f9; padding:15px; border-radius:10px; border: 1px solid #eee; display: flex; flex-direction: column;">
+      <div style="text-align:left; margin-bottom:10px;">
+        <span style="background:#eee; padding:10px; border-radius:10px; display:inline-block; font-size:14px;">
+          How Can i help you
+        </span>
+      </div>
+    </div>
+
+    <div id="quickOptions" style="display:flex; gap:8px; margin: 10px 0; flex-wrap:wrap; min-height: 40px;"></div>
+
+    <div style="display:flex; gap:10px;">
+      <input type="text" id="chatInput" style="margin:0;" placeholder="" onkeypress="handleEnter(event)">
+      <button class="btn-primary" style="width: auto;" data-lang="s_btn" onclick="sendMsg()">Send</button>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="java.js">
+  </script>
+</body>
+</html>
