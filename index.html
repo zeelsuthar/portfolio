@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeel Suthar | Premium Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#1e293b',
+                        accent: '#38bdf8',
+                        gold: '#fbbf24'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom 3D & Premium Effects */
+        body {
+            background-color: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+        
+        /* 3D Book Styles for Resume */
+        .book-container {
+            perspective: 1000px;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        .book {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        .book-container:hover .book {
+            transform: rotateY(-180deg);
+        }
+        .book-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .book-front {
+            background: linear-gradient(45deg, #1e293b, #0f172a);
+            border: 2px solid #fbbf24;
+        }
+        .book-back {
+            background: #fff;
+            color: #0f172a;
+            transform: rotateY(180deg);
+            overflow-y: auto;
+            text-align: left;
+            align-items: flex-start;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 glass-card px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-accent tracking-wider">Zeel<span class="text-white">Suthar</span></h1>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#home" class="hover:text-accent transition">Home</a>
+            <a href="#about" class="hover:text-accent transition">About</a>
+            <a href="#coding" class="hover:text-accent transition">Code</a>
+            <a href="#projects" class="hover:text-accent transition">Web</a>
+            <!--<a href="#blender" class="hover:text-accent transition">3D/Video</a>-->
+            <a href="#resume" class="hover:text-accent transition">Resume</a>
+            <a href="#contact" class="hover:text-accent transition">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+        <div class="z-10 text-center px-4" data-aos="zoom-in">
+            <h2 class="text-lg md:text-xl text-accent mb-4 tracking-[0.2em] uppercase">Hello, I am</h2>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 text-white text-glow" data-tilt>ZEEL SUTHAR</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">Web Developer | 3D Artist | Programmer</p>
+            <div class="flex justify-center gap-4">
+                <a href="#projects" class="px-8 py-3 bg-accent text-black font-bold rounded-full hover:bg-white transition shadow-lg hover:shadow-accent/50">View Work</a>
+                <a href="#contact" class="px-8 py-3 border border-accent text-accent font-bold rounded-full hover:bg-accent hover:text-black transition">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <div class="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden glass-card flex items-center justify-center group" data-tilt>
+                    <i class="fas fa-user-astronaut text-9xl text-gray-600 group-hover:text-accent transition duration-500">
+                       <!-- <img src="my photo.jpeg" alt="">-->
+                    </i>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-4xl font-bold mb-6 text-white"><span class="text-accent">About</span> Me</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    I am a passionate student and developer with a flair for creating immersive digital experiences. 
+                    From building complex algorithmic solutions in <strong>Python and C++</strong> to designing premium 
+                    cinematic trailers in <strong>Blender</strong>, I bridge the gap between logic and creativity.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 glass-card rounded-lg text-center">
+                        <i class="fas fa-code text-2xl text-accent mb-2"></i>
+                        <h3 class="font-bold">Web Dev</h3>
+                    </div>
+                    <div class="p-4 glass-card rounded-lg text-center">
+                        <i class="fas fa-cube text-2xl text-gold mb-2"></i>
+                        <h3 class="font-bold">3D Modeling</h3>
+                    </div>
+                    <div class="p-4 glass-card rounded-lg text-center">
+                        <i class="fas fa-video text-2xl text-red-500 mb-2"></i>
+                        <h3 class="font-bold">Motion Graphics</h3>
+                    </div>
+                    <div class="p-4 glass-card rounded-lg text-center">
+                        <i class="fas fa-laptop-code text-2xl text-green-400 mb-2"></i>
+                        <h3 class="font-bold">Software</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="coding" class="py-20 bg-secondary/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Programming <span class="text-accent">Hub</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-xl relative overflow-hidden group" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition">
+                        <i class="fab fa-python text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-2">Python</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Data Analysis (NumPy/Pandas)</li>
+                        <li>• Automation Scripts</li>
+                        <li>• Custom Compilers</li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-black/50 rounded font-mono text-xs text-green-400">print("Hello World")</div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl relative overflow-hidden group" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition">
+                        <i class="fas fa-microchip text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-500 mb-2">C / C++</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Memory Management</li>
+                        <li>• Data Structures</li>
+                        <li>• System Programming</li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-black/50 rounded font-mono text-xs text-blue-300">std::cout << "Optimized";</div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl relative overflow-hidden group" data-tilt data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition">
+                        <i class="fab fa-java text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-red-500 mb-2">Java</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• OOP Concepts</li>
+                        <li>• Android Backend</li>
+                        <li>• Enterprise Apps</li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-black/50 rounded font-mono text-xs text-red-300">public static void...</div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl relative overflow-hidden group" data-tilt data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition">
+                        <i class="fab fa-js text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-accent mb-2">Web</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• HTML5 / CSS3 / JS</li>
+                        <li>• React / Tailwind</li>
+                        <li>• Responsive Design</li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-black/50 rounded font-mono text-xs text-accent">console.log("Interactive");</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Featured <span class="text-accent">Projects</span></h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <a href="frudeshild/index.html">
+            <div class="glass-card rounded-xl overflow-hidden group relative" data-tilt data-aos="fade-right">
+                <div class="h-48 bg-gray-700 relative overflow-hidden">
+                    <video class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" muted loop playsinline>
+                        <source src="frudeshild.mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-slate-900 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-500">
+                        <h3 class="text-3xl font-black text-white opacity-20 uppercase tracking-widest">Fraudshield</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Fraudshield Project</h3>
+                    <p class="text-gray-400 text-sm mb-4">A comprehensive security solution designed to detect and prevent digital fraud. Built with a focus on data protection.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 text-xs bg-secondary rounded-full text-accent">Cyber</span>
+                        <span class="px-3 py-1 text-xs bg-secondary rounded-full text-accent">Web Security</span>
+                    </div>
+                </div>
+            </div>
+        </a> 
+
+        <a href="lunaro/index.html">
+            <div class="glass-card rounded-xl overflow-hidden group relative" data-tilt data-aos="fade-left">
+                <div class="h-48 bg-gray-700 relative overflow-hidden">
+                    <video class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" muted loop playsinline>
+                        <source src="lunaro.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-slate-900 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-500">
+                        <h3 class="text-3xl font-black text-white opacity-20 uppercase tracking-widest">Lunaro Films</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Lunaro Films Portfolio</h3>
+                    <p class="text-gray-400 text-sm mb-4">A high-end portfolio website for photography and videography, featuring immersive galleries and smooth transitions.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 text-xs bg-secondary rounded-full text-accent">HTML/CSS</span>
+                        <span class="px-3 py-1 text-xs bg-secondary rounded-full text-accent">Design</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+    <!--<section id="blender" class="py-20 bg-black relative">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4 text-white" data-aos="fade-up">3D & <span class="text-red-500">Cinematics</span></h2>
+            <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Creating worlds in Blender. Currently working on the thriller series <strong>"PAPERHIEST"</strong>.</p>
+            
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-gray-800 shadow-2xl shadow-red-900/20" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-gray-900 flex flex-col items-center justify-center">
+                    <i class="fas fa-play-circle text-6xl text-red-600 mb-4 hover:scale-110 transition cursor-pointer"></i>
+                    <h3 class="text-2xl font-bold tracking-[0.5em] text-white">PAPERHIEST</h3>
+                    <p class="text-xs text-gray-500 mt-2">COMING SOON</p>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Achievements</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-lg text-center hover:bg-white/5 transition" data-aos="fade-up" data-aos-delay="0">
+                <i class="fas fa-award text-4xl text-gold mb-4"></i>
+                <h3 class="font-bold text-lg">25-Day Internship</h3>
+                <p class="text-sm text-gray-400 mt-2">Completed intensive training in Web Development & Python.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg text-center hover:bg-white/5 transition" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-trophy text-4xl text-gold mb-4"></i>
+                <h3 class="font-bold text-lg">Project Lead</h3>
+                <p class="text-sm text-gray-400 mt-2">Led the development of the 'Fraudshield' security project.</p>
+            </div>
+            <div class="glass-card p-6 rounded-lg text-center hover:bg-white/5 transition" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-certificate text-4xl text-gold mb-4"></i>
+                <h3 class="font-bold text-lg">Blender Artist</h3>
+                <p class="text-sm text-gray-400 mt-2">Recognized for cinematic 3D visual storytelling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="py-24 bg-secondary/20 overflow-hidden">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">My <span class="text-accent">Resume</span></h2>
+            <p class="text-gray-400 mt-2 animate-pulse">Hover or Tap the book to open</p>
+        </div>
+        
+        <div class="book-container" data-aos="flip-left">
+            <div class="book">
+                <div class="book-face book-front">
+                    <h3 class="text-3xl font-black text-gold mb-2">RESUME</h3>
+                    <h4 class="text-white text-xl">Zeel Suthar</h4>
+                    <div class="w-16 h-1 bg-accent my-4"></div>
+                    <i class="fas fa-fingerprint text-6xl text-white/20"></i>
+                </div>
+                <div class="book-face book-back">
+                    <h3 class="text-xl font-bold text-slate-800 border-b-2 border-accent mb-2 w-full">Zeel Suthar</h3>
+                    <p class="text-xs text-gray-600 mb-2">Student & Developer | Ahmedabad, Gujarat</p>
+                    
+                    <h4 class="text-sm font-bold text-slate-800 mt-2">Education</h4>
+                    <p class="text-xs text-gray-600">Information Technology Student</p>
+                    
+                    <h4 class="text-sm font-bold text-slate-800 mt-2">Technical Skills</h4>
+                    <p class="text-xs text-gray-600">HTML5, CSS, JS, Python, C++, Blender</p>
+                    
+                    <h4 class="text-sm font-bold text-slate-800 mt-2">Projects</h4>
+                    <p class="text-xs text-gray-600">Fraudshield, Paperhiest (3D), Lunaro Films</p>
+                    
+                    <a href="#" class="mt-auto w-full py-2 bg-slate-800 text-white text-xs text-center rounded hover:bg-accent transition">Download Full PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-8 text-white">Get In <span class="text-accent">Touch</span></h2>
+        <div class="glass-card p-8 rounded-2xl" data-aos="zoom-in-up">
+            <form class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Your Name" class="w-full bg-slate-800 border border-gray-700 p-3 rounded-lg focus:outline-none focus:border-accent text-white">
+                    <input type="email" placeholder="Your Email" class="w-full bg-slate-800 border border-gray-700 p-3 rounded-lg focus:outline-none focus:border-accent text-white">
+                </div>
+                <input type="text" placeholder="Subject" class="w-full bg-slate-800 border border-gray-700 p-3 rounded-lg focus:outline-none focus:border-accent text-white">
+                <textarea rows="4" placeholder="Message" class="w-full bg-slate-800 border border-gray-700 p-3 rounded-lg focus:outline-none focus:border-accent text-white"></textarea>
+                <button class="w-full py-3 bg-gradient-to-r from-accent to-blue-600 text-black font-bold rounded-lg hover:shadow-lg hover:shadow-accent/50 transition">Send Message</button>
+            </form>
+        </div>
+        
+        <div class="mt-12 flex justify-center space-x-6">
+            <a href="https://github.com/zeelsuthar" class="text-2xl text-gray-400 hover:text-white transition"><i class="fab fa-github"></i></a>
+            <a href="" class="text-2xl text-gray-400 hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-2xl text-gray-400 hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <footer class="mt-12 text-gray-600 text-sm">
+            &copy; 2026 Zeel Suthar. All Rights Reserved.
+        </footer>
+    </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        // Initialize Animate On Scroll
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false
+        });
+        
+        // Initialize 3D Tilt on all cards
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+    document.querySelectorAll('.group').forEach(card => {
+        const video = card.querySelector('video');
+        if (video) {
+            card.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0; 
+            });
+        }
+    });
+    </script>
+</body>
+</html>
