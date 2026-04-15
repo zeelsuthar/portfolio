@@ -1,7 +1,7 @@
 
 /* ================= API ================= */
 
-const API_KEY = "AIzaSyC3hWB8ajYKbGNChJIUUOCYumL9kYNnqpg";
+const API_KEY = "";
 
 
 /* ================= MOBILE MENU ================= */
